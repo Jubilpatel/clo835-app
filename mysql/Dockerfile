@@ -1,8 +1,7 @@
 FROM mysql:8.0
 
-COPY init.sql /docker-entrypoint-initdb.d/
+# Copy your SQL initialization file into the container
+COPY ./init.sql /docker-entrypoint-initdb.d/
 
-ENV MYSQL_ROOT_PASSWORD=root
-ENV MYSQL_DATABASE=webappdb
-ENV MYSQL_USER=webuser
-ENV MYSQL_PASSWORD=webpass
+# Expose the MySQL port
+EXPOSE 3306
